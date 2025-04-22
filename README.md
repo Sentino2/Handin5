@@ -9,7 +9,7 @@ A full-stack web application for a Berlin-based Italian restaurant, showcasing t
 - **Dynamic Content**: Real-time updates and interactive elements
 - **User-Friendly Interface**: Easy navigation and intuitive layout
 
-## 🛠️ Technical Implementation
+##  Technical Implementation
 
 ### Frontend
 - **EJS Templates**: Dynamic HTML generation with embedded JavaScript
@@ -100,7 +100,7 @@ MONGODB_URI=mongodb://localhost:27017/pizzashop
 npm start
 ```
 
-## 📝 Project Structure
+##  Project Structure
 ```
 src/
 ├── config/
