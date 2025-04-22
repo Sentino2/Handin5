@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact Us | Retro Pizza</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eaf7f7; /* Soft teal background */
+    }
+
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #ffe8c2; /* Warm cream background */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      border: 4px solid #e63946; /* Muted red border */
+    }
+
+    h2 {
+      color: #e63946; /* Muted red */
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      color: #4a342e; /* Dark brown for retro text */
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .location-hours {
+      margin: 25px 0;
+      text-align: left;
+      font-size: 18px;
+      color: #4a342e; /* Dark brown */
+      line-height: 1.6;
+    }
+
+    .location-hours h3 {
+      color: #e63946; /* Muted red */
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .map-section {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .map-section h3 {
+      color: #e63946; /* Muted red */
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .map-container {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      margin: 0 auto;
+      border: 4px solid #f4a261; /* Mustard yellow border */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 12px;
+      border: 2px solid #f4a261; /* Mustard yellow border */
+      border-radius: 10px;
+      font-size: 16px;
+      background-color: #fff; /* Clean white for input fields */
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #999; /* Light gray placeholders */
+    }
+
+    button {
+      padding: 12px 30px;
+      background-color: #f4a261; /* Mustard yellow */
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #e63946; /* Muted red on hover */
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #4a342e; /* Dark brown for footer */
+      text-align: center;
+    }
+
+    /* Decorative divider for retro flair */
+    .divider {
+      height: 4px;
+      width: 100px;
+      background-color: #f4a261; /* Mustard yellow */
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Whether it’s feedback, questions, or just to tell us how much you love our pizza, drop us a message!</p>
+    <div class="divider"></div>
+    <div class="location-hours">
+      <h3>Our Location</h3>
+      <p>Retro Pizza Diner<br>456 Pepperoni Avenue<br>Pizza City, NY 12345</p>
+
+      <h3>Opening Hours</h3>
+      <p>Monday - Friday: 10:30 AM - 9:30 PM<br>Saturday - Sunday: 12:00 PM - 11:00 PM</p>
+    </div>
+
+    <!-- Google Maps Section -->
+    <div class="map-section">
+      <h3>Find Us Here</h3>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.707245647914!2d13.405838615798697!3d52.52000617981145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851e3c3b3b3b3%3A0x123456789abcdef!2sBrandenburg%20Gate%2C%20Berlin!5e0!3m2!1sen!2sde!4v1616587099453!5m2!1sen!2sde" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <form action="/contact" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 Retro Pizza. Bringing you the best slices since 1985!</p>
+  </footer>
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Shop | Pizza Restaurant</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif; /* Clean retro font */
+      margin: 0;
+      padding: 0;
+      background-color: #eaf7f7; /* Soft teal background */
+    }
+
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #ffe8c2; /* Warm cream background */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      border: 4px solid #e63946; /* Muted red border */
+    }
+
+    h2 {
+      text-align: center;
+      color: #e63946; /* Muted red */
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #fff; /* Clean white for items */
+      border-radius: 10px;
+      border: 2px solid #f4a261; /* Mustard yellow border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    li:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    }
+
+    .pizza-emoji {
+      font-size: 40px;
+      margin-right: 15px;
+    }
+
+    a {
+      color: #e63946; /* Muted red for links */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #c0392b; /* Darker red on hover */
+    }
+
+    .sold-out {
+      color: tomato;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <main>
+    <h2>Our Current Offering:</h2>
+    <ul>
+      <% cookies.forEach(cookie => { %>
+        <li>
+          <span class="pizza-emoji">🍕</span>
+          <% if(cookie.isInStock) { %> 
+            <a href="/cookies/<%= cookie.slug %>"><%= cookie.name %>: <%= readablePrice(cookie.priceInCents) %></a>
+          <% } else { %>
+            <span class="sold-out"><%= cookie.name %> [SOLD OUT]</span>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

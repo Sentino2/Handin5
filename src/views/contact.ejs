@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact Us | Pizza Palace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+  <main>
+    <div class="contact-container">
+      <h2 class="section-title">Contact Us</h2>
+      
+      <div class="contact-content">
+        <section class="contact-info">
+          <h3>Visit Us</h3>
+          <p>Pizza Palace Berlin</p>
+          <p>Rosenthaler Straße 1</p>
+          <p>10119 Berlin, Germany</p>
+          
+          <h3>Opening Hours</h3>
+          <p>Monday - Friday: 11:00 - 23:00</p>
+          <p>Saturday - Sunday: 12:00 - 23:00</p>
+          
+          <h3>Contact Information</h3>
+          <p>Phone: +49 30 12345678</p>
+          <p>Email: info@pizzapalace-berlin.de</p>
+        </section>
+
+        <section class="contact-form">
+          <h3>Send us a Message</h3>
+          <form action="/contact" method="POST">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html> 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Pizza | Pizza Restaurant</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif; /* Clean retro font */
+      margin: 0;
+      padding: 0;
+      background-color: #eaf7f7; /* Soft teal background */
+    }
+
+    main {
+      padding: 30px;
+      margin: 50px auto;
+      max-width: 800px;
+      background-color: #ffe8c2; /* Warm cream background */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      border: 4px solid #e63946; /* Muted red border */
+    }
+
+    h2 {
+      text-align: center;
+      color: #e63946; /* Muted red */
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 12px;
+      border: 2px solid #f4a261; /* Mustard yellow border */
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #fff; /* Clean white for input fields */
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #e63946; /* Muted red */
+      color: #ffe8c2; /* Cream text */
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #c0392b; /* Darker red */
+      transform: scale(1.05); /* Slight zoom effect */
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/header') %>
+  <main>
+    <h2>Create a New Pizza </h2>
+    <form action="/cookies" method="POST">
+      <input type="text" name="name" placeholder="Pizza Name" required /><br />
+      <input type="text" name="slug" placeholder="Pizza Slug" required /><br />
+      <input type="number" name="priceInCents" placeholder="Price in Cents" required min="0" step="1" /><br />
+      <button>Save</button>
+    </form>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+</html>

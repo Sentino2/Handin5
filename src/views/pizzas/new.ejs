@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create New Pizza | Pizza Palace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <div class="form-container">
+      <h2>Create a New Pizza</h2>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="error-message">
+          <%= error %>
+        </div>
+      <% } %>
+      <form action="/pizzas" method="POST">
+        <div class="form-group">
+          <label for="name">Pizza Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Pizza Name" 
+            value="<%= typeof formData !== 'undefined' ? formData.name : '' %>"
+            required 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="slug">Slug (URL-friendly name)</label>
+          <input 
+            type="text" 
+            id="slug" 
+            name="slug" 
+            placeholder="Pizza Slug (e.g., margherita-pizza)" 
+            value="<%= typeof formData !== 'undefined' ? formData.slug : '' %>"
+            required 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="priceInCents">Price (in cents)</label>
+          <input 
+            type="number" 
+            id="priceInCents" 
+            name="priceInCents" 
+            placeholder="Price in Cents" 
+            value="<%= typeof formData !== 'undefined' ? formData.priceInCents : '' %>"
+            required 
+            min="0" 
+            step="1" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="ingredients">Select Ingredients</label>
+          <div class="ingredients-grid">
+            <div class="ingredient-option">
+              <input type="checkbox" id="tomato-sauce" name="ingredients" value="Tomato Sauce">
+              <label for="tomato-sauce">🍅 Tomato Sauce</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="mozzarella" name="ingredients" value="Mozzarella">
+              <label for="mozzarella">🧀 Mozzarella</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="basil" name="ingredients" value="Basil">
+              <label for="basil">🌿 Basil</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="pepperoni" name="ingredients" value="Pepperoni">
+              <label for="pepperoni">🍖 Pepperoni</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="mushrooms" name="ingredients" value="Mushrooms">
+              <label for="mushrooms">🍄 Mushrooms</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="olives" name="ingredients" value="Olives">
+              <label for="olives">🫒 Olives</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="onions" name="ingredients" value="Onions">
+              <label for="onions">🧅 Onions</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="bell-peppers" name="ingredients" value="Bell Peppers">
+              <label for="bell-peppers">🫑 Bell Peppers</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="sausage" name="ingredients" value="Sausage">
+              <label for="sausage">🌭 Sausage</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="bacon" name="ingredients" value="Bacon">
+              <label for="bacon">🥓 Bacon</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="calories">Calories</label>
+          <input 
+            type="number" 
+            id="calories" 
+            name="nutrition[calories]" 
+            placeholder="Calories" 
+            value="<%= typeof formData !== 'undefined' && formData.nutrition ? formData.nutrition.calories : '' %>"
+            required 
+            min="0" 
+            step="1" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="protein">Protein (grams)</label>
+          <input 
+            type="number" 
+            id="protein" 
+            name="nutrition[protein]" 
+            placeholder="Enter protein amount" 
+            value="<%= typeof formData !== 'undefined' && formData.nutrition ? formData.nutrition.protein.replace('g', '') : '' %>"
+            required 
+            min="0" 
+            step="1"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="carbs">Carbohydrates (grams)</label>
+          <input 
+            type="number" 
+            id="carbs" 
+            name="nutrition[carbs]" 
+            placeholder="Carbohydrates (e.g., 30g)" 
+            value="<%= typeof formData !== 'undefined' && formData.nutrition ? formData.nutrition.carbs : '' %>"
+            required 
+            min="0" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="fat">Fat (grams)</label>
+          <input 
+            type="number" 
+            id="fat" 
+            name="nutrition[fat]" 
+            placeholder="Fat (grams)" 
+            value="<%= typeof formData !== 'undefined' && formData.nutrition ? formData.nutrition.fat : '' %>"
+            required 
+            min="0" 
+            step="1"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea 
+            id="description" 
+            name="description" 
+            placeholder="Pizza Description"
+          ><%= typeof formData !== 'undefined' ? formData.description : '' %></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Create Pizza</button>
+      </form>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 

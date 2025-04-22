@@ -1,0 +1,6 @@
+runtime: nodejs18
+instance_class: F1
+
+env_variables:
+  MONGODB_URI: "mongodb+srv://admin:your_password@cluster0.mongodb.net/pizzashop?retryWrites=true&w=majority"
+  NODE_ENV: "production" 

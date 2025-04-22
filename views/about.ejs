@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About | Retro Pizzeria</title>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      font-family: 'Verdana', sans-serif; /* Clean retro font */
+      margin: 0;
+      padding: 0;
+      background-color: #eaf7f7; /* Soft teal background */
+    }
+
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: 50px auto;
+      background-color: #ffe8c2; /* Warm cream background */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+      border: 4px solid #e63946; /* Muted red border */
+      text-align: center;
+    }
+
+    h2 {
+      color: #e63946; /* Muted red */
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #4a342e; /* Dark brown for retro text */
+      margin: 15px 0;
+      line-height: 1.6; /* Improve readability */
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .grid-item {
+      background-color: #f4a261; /* Mustard yellow */
+      color: #fff; /* White text for contrast */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #4a342e; /* Dark brown for footer */
+      text-align: center;
+    }
+
+    /* Decorative divider for retro flair */
+    .divider {
+      height: 4px;
+      width: 100px;
+      background-color: #f4a261; /* Mustard yellow */
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h2>About Us</h2>
+    <div class="divider"></div>
+    <p>Welcome to Retro Pizzeria! We serve the best pizzas in town with a retro twist.</p>
+    <p>Our pizzas are made with fresh ingredients, authentic recipes, and a whole lot of love. From classic Margherita to bold and adventurous flavors, we’ve got something for everyone.</p>
+    <p>Join us for a slice of nostalgia and a taste of perfection. Whether you’re dining in or taking out, Retro Pizzeria is here to make your day better, one pizza at a time.</p>
+
+    <!-- Cool Grid Section -->
+    <div class="grid-container">
+      <div class="grid-item">
+        <h3>Margherita</h3>
+        <p>A timeless classic with fresh mozzarella, tangy tomato sauce, and basil leaves.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Pepperoni</h3>
+        <p>The all-time favorite—loaded with spicy pepperoni and gooey cheese.</p>
+      </div>
+      <div class="grid-item">
+        <h3>BBQ Chicken</h3>
+        <p>Smoky BBQ sauce, tender chicken, and a sprinkle of red onions.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Veggie Supreme</h3>
+        <p>A colorful mix of bell peppers, olives, mushrooms, and onions.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Hawaiian</h3>
+        <p>Sweet and savory with juicy pineapple and smoky ham.</p>
+      </div>
+      <div class="grid-item">
+        <h3>Meat Lovers</h3>
+        <p>A hearty pizza topped with sausage, bacon, pepperoni, and ham.</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Retro Pizzeria. Serving nostalgia by the slice since 1985!</p>
+  </footer>
+  <%- include('partials/footer') %>
+</body>
+</html>

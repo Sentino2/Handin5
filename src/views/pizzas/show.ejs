@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pizza.name %> | Pizza Palace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <div class="pizza-detail">
+      <div class="pizza-emoji">🍕</div>
+      <div class="pizza-info">
+        <h1><%= pizza.name %></h1>
+        <p class="description"><%= pizza.description || 'A delicious pizza made with love' %></p>
+        
+        <div class="pizza-details">
+          <div class="detail-section">
+            <h3>Ingredients</h3>
+            <ul class="ingredients-list">
+              <% pizza.ingredients.forEach(ingredient => { %>
+                <li><%= ingredient %></li>
+              <% }); %>
+            </ul>
+          </div>
+          
+          <div class="detail-section">
+            <h3>Nutrition Information</h3>
+            <ul class="nutrition-list">
+              <li>Calories: <%= pizza.nutrition.calories %></li>
+              <li>Protein: <%= pizza.nutrition.protein %>g</li>
+              <li>Carbohydrates: <%= pizza.nutrition.carbs %>g</li>
+            </ul>
+          </div>
+          
+          <div class="price">$<%= (pizza.priceInCents / 100).toFixed(2) %></div>
+        </div>
+        
+        <div class="pizza-actions">
+          <a href="/pizzas/<%= pizza.slug %>/edit" class="btn btn-edit">Edit Pizza</a>
+          <form action="/pizzas/<%= pizza.slug %>?_method=DELETE" method="POST" class="delete-form">
+            <button type="submit" class="btn btn-delete">Delete Pizza</button>
+          </form>
+          <a href="/pizzas" class="btn btn-back">Back to Menu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 

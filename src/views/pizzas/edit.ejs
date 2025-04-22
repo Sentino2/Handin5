@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit Pizza | Pizza Palace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <div class="form-container">
+      <h2>Edit Pizza</h2>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="error-message">
+          <%= error %>
+        </div>
+      <% } %>
+      <form action="/pizzas/<%= pizza.slug %>?_method=PUT" method="POST">
+        <div class="form-group">
+          <label for="name">Pizza Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            value="<%= pizza.name %>"
+            required 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="slug">Slug (URL-friendly name)</label>
+          <input 
+            type="text" 
+            id="slug" 
+            name="slug" 
+            value="<%= pizza.slug %>"
+            required 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="priceInCents">Price (in cents)</label>
+          <input 
+            type="number" 
+            id="priceInCents" 
+            name="priceInCents" 
+            value="<%= pizza.priceInCents %>"
+            required 
+            min="0" 
+            step="1" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="ingredients">Select Ingredients</label>
+          <div class="ingredients-grid">
+            <div class="ingredient-option">
+              <input type="checkbox" id="tomato-sauce" name="ingredients" value="Tomato Sauce" <%= pizza.ingredients.includes('Tomato Sauce') ? 'checked' : '' %>>
+              <label for="tomato-sauce">Tomato Sauce</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="mozzarella" name="ingredients" value="Mozzarella" <%= pizza.ingredients.includes('Mozzarella') ? 'checked' : '' %>>
+              <label for="mozzarella">Mozzarella</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="basil" name="ingredients" value="Basil" <%= pizza.ingredients.includes('Basil') ? 'checked' : '' %>>
+              <label for="basil">Basil</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="pepperoni" name="ingredients" value="Pepperoni" <%= pizza.ingredients.includes('Pepperoni') ? 'checked' : '' %>>
+              <label for="pepperoni">Pepperoni</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="mushrooms" name="ingredients" value="Mushrooms" <%= pizza.ingredients.includes('Mushrooms') ? 'checked' : '' %>>
+              <label for="mushrooms">Mushrooms</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="olives" name="ingredients" value="Olives" <%= pizza.ingredients.includes('Olives') ? 'checked' : '' %>>
+              <label for="olives">Olives</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="onions" name="ingredients" value="Onions" <%= pizza.ingredients.includes('Onions') ? 'checked' : '' %>>
+              <label for="onions">Onions</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="bell-peppers" name="ingredients" value="Bell Peppers" <%= pizza.ingredients.includes('Bell Peppers') ? 'checked' : '' %>>
+              <label for="bell-peppers">Bell Peppers</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="sausage" name="ingredients" value="Sausage" <%= pizza.ingredients.includes('Sausage') ? 'checked' : '' %>>
+              <label for="sausage">Sausage</label>
+            </div>
+            <div class="ingredient-option">
+              <input type="checkbox" id="bacon" name="ingredients" value="Bacon" <%= pizza.ingredients.includes('Bacon') ? 'checked' : '' %>>
+              <label for="bacon">Bacon</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="calories">Calories</label>
+          <input 
+            type="number" 
+            id="calories" 
+            name="nutrition[calories]" 
+            value="<%= pizza.nutrition.calories %>"
+            required 
+            min="0" 
+            step="1" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="protein">Protein (grams)</label>
+          <input 
+            type="number" 
+            id="protein" 
+            name="nutrition[protein]" 
+            value="<%= pizza.nutrition.protein %>"
+            required 
+            min="0" 
+            step="1"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="carbs">Carbohydrates (grams)</label>
+          <input 
+            type="number" 
+            id="carbs" 
+            name="nutrition[carbs]" 
+            value="<%= pizza.nutrition.carbs %>"
+            required 
+            min="0" 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="fat">Fat (grams)</label>
+          <input 
+            type="number" 
+            id="fat" 
+            name="nutrition[fat]" 
+            value="<%= pizza.nutrition.fat %>"
+            required 
+            min="0" 
+            step="1"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea 
+            id="description" 
+            name="description"
+          ><%= pizza.description || '' %></textarea>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-save">Save Changes</button>
+          <a href="/pizzas" class="btn btn-cancel">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 

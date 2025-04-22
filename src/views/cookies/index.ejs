@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Our Cookies | Cookie Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <h2>Our Delicious Cookies</h2>
+    
+    <div class="cookie-list">
+      <% if (cookies && cookies.length > 0) { %>
+        <% cookies.forEach(cookie => { %>
+          <div class="cookie-card">
+            <h3><%= cookie.name %></h3>
+            <p class="price">$<%= (cookie.priceInCents / 100).toFixed(2) %></p>
+            <% if (cookie.description) { %>
+              <p class="description"><%= cookie.description %></p>
+            <% } %>
+            <p class="stock-status">
+              <%= cookie.isInStock ? 'In Stock' : 'Out of Stock' %>
+            </p>
+            <div class="actions">
+              <a href="/cookies/<%= cookie.slug %>" class="btn">View Details</a>
+              <a href="/cookies/<%= cookie.slug %>/edit" class="btn">Edit</a>
+              <a href="/cookies/<%= cookie.slug %>/delete" class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No cookies available at the moment.</p>
+      <% } %>
+    </div>
+
+    <div class="actions">
+      <a href="/cookies/new" class="btn">Create New Cookie</a>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 

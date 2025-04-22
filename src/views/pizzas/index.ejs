@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Our Specialties | Pizza Palace</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <div class="pizzas-container">
+      <h1 class="section-title">🍕 Our Specialties</h1>
+      
+      <div class="pizza-grid">
+        <% pizzas.forEach(pizza => { %>
+          <div class="pizza-card">
+            <div class="pizza-card-inner">
+              <div class="pizza-card-front">
+                <div class="pizza-emoji">🍕</div>
+                <h3><%= pizza.name %></h3>
+                <div class="price-tag">$<%= (pizza.priceInCents / 100).toFixed(2) %></div>
+              </div>
+              <div class="pizza-card-back">
+                <div class="pizza-details">
+                  <p class="description"><%= pizza.description || 'A delicious pizza made with love' %></p>
+                  
+                  <div class="ingredients-section">
+                    <h4>Ingredients</h4>
+                    <ul class="ingredients-list">
+                      <% pizza.ingredients.forEach(ingredient => { %>
+                        <li>• <%= ingredient %></li>
+                      <% }); %>
+                    </ul>
+                  </div>
+                  
+                  <div class="nutrition-section">
+                    <h4>Nutrition Info</h4>
+                    <div class="nutrition-grid">
+                      <div class="nutrition-item">
+                        <span class="nutrition-label">🔥 Calories</span>
+                        <span class="nutrition-value"><%= pizza.nutrition.calories %></span>
+                      </div>
+                      <div class="nutrition-item">
+                        <span class="nutrition-label">💪 Protein</span>
+                        <span class="nutrition-value"><%= pizza.nutrition.protein %>g</span>
+                      </div>
+                      <div class="nutrition-item">
+                        <span class="nutrition-label">🌾 Carbs</span>
+                        <span class="nutrition-value"><%= pizza.nutrition.carbs %>g</span>
+                      </div>
+                      <div class="nutrition-item">
+                        <span class="nutrition-label">🥑 Fat</span>
+                        <span class="nutrition-value"><%= pizza.nutrition.fat %>g</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="pizza-actions">
+                  <a href="/pizzas/<%= pizza.slug %>/edit" class="btn btn-edit">✏️ Edit</a>
+                  <form action="/pizzas/<%= pizza.slug %>?_method=DELETE" method="POST" class="delete-form">
+                    <button type="submit" class="btn btn-delete">🗑️ Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 

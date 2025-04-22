@@ -1,0 +1,113 @@
+body {
+  font-family: 'Verdana', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eaf7f7;
+}
+
+main {
+  padding: 30px;
+  max-width: 900px;
+  margin: 50px auto;
+  background-color: #ffe8c2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  border: 4px solid #e63946;
+}
+
+h2 {
+  text-align: center;
+  color: #e63946;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid #f4a261;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.pizza-emoji {
+  font-size: 40px;
+  margin-right: 15px;
+}
+
+a {
+  color: #e63946;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #c0392b;
+}
+
+.sold-out {
+  color: tomato;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  padding: 12px;
+  border: 2px solid #f4a261;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #e63946;
+  color: #ffe8c2;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 2px solid #ef5350;
+} 

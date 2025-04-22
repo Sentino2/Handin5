@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to Pizza Palace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+  <main>
+    <section class="hero">
+      <h1>Welcome to Pizza Palace</h1>
+      <p>Handcrafted pizzas made with love and the finest ingredients</p>
+      <a href="/pizzas" class="btn">View Our Menu</a>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <h3>Fresh Ingredients</h3>
+        <p>We use only the finest, locally-sourced ingredients</p>
+      </div>
+      
+      <div class="feature-card">
+        <h3>Wood-Fired Oven</h3>
+        <p>Our pizzas are cooked in a traditional wood-fired oven</p>
+      </div>
+      
+      <div class="feature-card">
+        <h3>Custom Orders</h3>
+        <p>Create your own pizza with our wide selection of toppings</p>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html> 

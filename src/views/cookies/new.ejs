@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Cookie | Cookie Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+  
+  <main>
+    <h2>Create a New Cookie</h2>
+    
+    <% if (typeof error !== 'undefined') { %>
+      <div class="error-message">
+        <%= error %>
+      </div>
+    <% } %>
+
+    <form action="/cookies" method="POST">
+      <div class="form-group">
+        <label for="name">Cookie Name:</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          value="<%= typeof formData !== 'undefined' ? formData.name : '' %>"
+          required 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="slug">Slug (URL-friendly name):</label>
+        <input 
+          type="text" 
+          id="slug" 
+          name="slug" 
+          value="<%= typeof formData !== 'undefined' ? formData.slug : '' %>"
+          required 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="priceInCents">Price (in cents):</label>
+        <input 
+          type="number" 
+          id="priceInCents" 
+          name="priceInCents" 
+          value="<%= typeof formData !== 'undefined' ? formData.priceInCents : '' %>"
+          min="0" 
+          required 
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea 
+          id="description" 
+          name="description"
+        ><%= typeof formData !== 'undefined' ? formData.description : '' %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="isInStock">In Stock:</label>
+        <input 
+          type="checkbox" 
+          id="isInStock" 
+          name="isInStock" 
+          <%= typeof formData !== 'undefined' && formData.isInStock ? 'checked' : '' %>
+        />
+      </div>
+
+      <button type="submit">Create Cookie</button>
+    </form>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html> 
